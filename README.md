@@ -1,25 +1,40 @@
-# CourseHub – Course Enrollment System
+# CourseHub – Course Enrollment Platform
 
-## Why I built this
-I wanted to understand how real systems handle course enrollment beyond basic CRUD operations, especially how user authentication and course selection workflows function together.
+## Overview
+CourseHub is a web-based course enrollment system designed to simulate real-world student-instructor workflows. It enables structured course management, enrollment tracking, and role-based access control.
 
-## What it does
-- User authentication (login/signup)
-- Browse available courses
-- Enroll in courses
-- Backend built using Flask and MySQL
+## Problem
+Manual or poorly structured enrollment systems lack scalability, proper tracking, and clear separation between student and instructor functionalities. This project explores how backend systems handle user authentication, course selection, and data relationships in a structured way.
 
-## What I learned
-- Handling user sessions and authentication in Flask  
-- Designing database schema for user-course relationships  
-- Structuring backend logic to support real-world workflows  
+## Features
+- Student authentication and course browsing
+- Course enrollment with structured tracking
+- Instructor-side access to view enrolled students
+- Role-based functionality for different users
+- Clean UI for managing courses and users
 
-## What I would improve next
-- Add waitlist system for full courses  
-- Add course recommendation system  
-- Improve UI/UX and usability  
+## Tech Stack
+- Backend: Python (Flask)
+- Database: MySQL
+- Frontend: HTML, CSS
+- Tools: Git
 
-## How to run
-1. Clone the repository  
-2. Install dependencies  
-3. Run the Flask server
+## Screenshots
+
+### Course Listing
+![Courses](images/courses.png)
+
+### Students View
+![Students](images/students.png)
+
+### Enrollment Form
+![Enroll](images/enroll.png)
+
+### Instructor Directory
+![Instructors](images/instructors.png)
+
+## How to Run Locally
+1. Clone the repository
+2. Install required dependencies:
+   ```bash
+   pip install flask mysql-connector-python
