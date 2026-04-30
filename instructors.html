@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container py-5">
+    <h2 class="text-center mb-5 animate__animated animate__fadeIn">Faculty Directory</h2>
+    <div class="row g-4">
+        {% for instructor in instructors %}
+        <div class="col-md-6 animate__animated animate__slideInUp">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-chalkboard-teacher fs-1 me-3 text-primary"></i>
+                        <div>
+                            <h4 class="mb-0">{{ instructor[1] }}</h4>
+                            <p class="text-muted mb-0">{{ instructor[3] }} Department</p>
+                        </div>
+                    </div>
+                    <p class="mb-2">
+                        <i class="fas fa-envelope me-2"></i>{{ instructor[2] }}
+                    </p>
+                    {% if instructor[4] %}
+                    <div class="mt-3">
+                        <h6>Courses Taught:</h6>
+                        <div class="badge bg-light text-dark me-2">{{ instructor[4] }}</div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

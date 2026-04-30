@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Page title with animation -->
+    <h1 class="animate__animated animate__fadeIn">My Courses (Student ID: {{ student_id }})</h1>
+
+    <!-- Container for displaying courses -->
+    <div class="row mt-4">
+        {% for course in courses %}
+            <!-- For each course, display a card with its details -->
+            <div class="col-md-6 mb-4 animate__animated animate__slideInLeft">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course[0] }}</h5>  <!-- Display course title -->
+                        <p class="card-text">{{ course[1] }} Credits | {{ course[2] }}</p>  <!-- Display credits and semester -->
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <!-- Display a message if no courses are enrolled -->
+            <div class="alert alert-warning">No courses enrolled!</div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

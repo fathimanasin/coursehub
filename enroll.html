@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card shadow animate__animated animate__fadeIn">
+        <div class="card-body">
+            <h2 class="card-title mb-4">Enrollment Form</h2>
+
+            <!-- Add 'novalidate' to form tag to disable browser validation -->
+            <form id="enrollForm" method="POST" novalidate>
+                
+                <!-- Student ID Field -->
+                <div class="mb-3">
+                    <label class="form-label">Student ID</label>
+                    <input type="number" name="student_id" class="form-control" required>
+                </div>
+                
+                <!-- Student Details Fields (Initially hidden) -->
+                <div id="studentDetails" style="display: none;">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Course Selection -->
+                <div class="mb-3">
+                    <label class="form-label">Select Course</label>
+                    <select name="course_id" class="form-select" required>
+                        {% for course in courses %}
+                        <option value="{{ course[0] }}">{{ course[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Semester -->
+                <div class="mb-3">
+                    <label class="form-label">Semester</label>
+                    <input type="text" name="semester" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Enroll</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Script to handle student ID input and dynamically show/hide the student details -->
+<script>
+    document.querySelector('[name="student_id"]').addEventListener('input', function() {
+        const studentId = this.value;
+        const detailsSection = document.getElementById('studentDetails');
+
+        if (studentId) {
+            fetch(`/check-student/${studentId}`)
+            .then(response => response.json())
+            .then(data => {
+                // Always show details fields for new students
+                detailsSection.style.display = 'block';
+
+                // Clear existing values when ID changes
+                document.querySelector('[name="name"]').value = '';
+                document.querySelector('[name="email"]').value = '';
+
+                // If student exists, fill the fields
+                if (data.exists) {
+                    document.querySelector('[name="name"]').value = data.name || '';
+                    document.querySelector('[name="email"]').value = data.email || '';
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

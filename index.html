@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Title for the page with animation -->
+    <h1 class="text-center mb-4 animate__animated animate__fadeIn">Available Courses</h1>
+
+    <!-- Grid layout for courses -->
+    <div class="row">
+        {% for course in courses %}
+            <!-- Each course is displayed in a card with animation -->
+            <div class="col-md-4 mb-4 animate__animated animate__slideInUp">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <!-- Course Title -->
+                        <h5 class="card-title">{{ course[1] }}</h5> <!-- Display the course title -->
+                        
+                        <!-- Course Details -->
+                        <p class="card-text">
+                            <span class="badge bg-primary">{{ course[2] }} Credits</span> <!-- Display course credits -->
+                            <span class="ms-2 text-muted">
+                                <i class="fas fa-user-tie me-1"></i> 
+                                {{ course[4] if course[4] else 'Instructor TBA' }} <!-- Display instructor name or 'Instructor TBA' -->
+                            </span>
+                        </p>
+                        
+                        <!-- Enroll Button -->
+                        <a href="{{ url_for('enroll') }}" class="btn btn-primary">Enroll Now</a> <!-- Enroll button -->
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
