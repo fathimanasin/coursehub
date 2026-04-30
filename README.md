@@ -22,16 +22,16 @@ Manual or poorly structured enrollment systems lack scalability, proper tracking
 ## Screenshots
 
 ### Course Listing
-![Courses](images/Courses.png)
+![Courses](images/CoursesPNG)
 
 ### Students View
-![Students](images/Students.png)
+![Students](images/Students.PNG)
 
 ### Enrollment Form
-![Enroll](images/Enrollments.png)
+![Enroll](images/Enrollments.PNG)
 
 ### Instructor Directory
-![Instructors](images/Instructors.png)
+![Instructors](images/Instructors.PNG)
 
 ## How to Run Locally
 1. Clone the repository
