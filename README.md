@@ -22,13 +22,13 @@ Manual or poorly structured enrollment systems lack scalability, proper tracking
 ## Screenshots
 
 ### Course Listing
-![Courses](images/CoursesPNG)
+![Courses](images/Enrollments.PNG)
 
 ### Students View
 ![Students](images/Students.PNG)
 
 ### Enrollment Form
-![Enroll](images/Enrollments.PNG)
+![Enroll](images/Courses.PNG)
 
 ### Instructor Directory
 ![Instructors](images/Instructors.PNG)
